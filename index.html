@@ -833,4 +833,481 @@
 
     .reveal.show{
       opacity:1;
-      transform:none
+      transform:none;
+    }
+
+    @media (max-width:1080px){
+      .hero-content,
+      .join-strip,
+      .modes,
+      .store-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:760px){
+      .container{width:min(var(--max), calc(100% - 18px))}
+      .nav{
+        min-height:auto;
+        padding:14px 0;
+        flex-wrap:wrap;
+      }
+      .nav-links{
+        order:3;
+        width:100%;
+        justify-content:space-between;
+        gap:12px;
+        padding-top:4px;
+        font-size:13px;
+      }
+      .nav-cta{margin-left:auto}
+      .hero{padding-top:50px}
+      .hero-shell{min-height:auto; border-radius:24px}
+      .hero-waterline{left:18px; right:18px; top:72px}
+      .hero-content{padding:22px; min-height:auto}
+      .hero-copy{padding-top:42px}
+      h1{font-size:44px}
+      .hero-sub{font-size:16px}
+      .panel-grid,
+      .mode-stats{
+        grid-template-columns:1fr;
+      }
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .mode-card,
+      .product,
+      .status-card,
+      .metric,
+      .join-strip{
+        border-radius:22px;
+      }
+      .join-actions{justify-content:flex-start}
+      .fish{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div class="deep-grid"></div>
+    <div class="caustics"></div>
+
+    <div class="fish one">
+      <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36 45C63 12 121 9 160 45C121 81 63 78 36 45Z" fill="url(#f1)" />
+        <path d="M160 45L196 20V70L160 45Z" fill="url(#f2)" />
+        <circle cx="72" cy="40" r="3" fill="white" fill-opacity=".9"/>
+        <path d="M70 58C82 53 94 53 105 58" stroke="white" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="f1" x1="36" y1="20" x2="168" y2="72" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#6EF4FF"/>
+            <stop offset="1" stop-color="#167BFF"/>
+          </linearGradient>
+          <linearGradient id="f2" x1="160" y1="20" x2="196" y2="70" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#C8FBFF"/>
+            <stop offset="1" stop-color="#28CFFF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="fish two">
+      <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36 45C63 12 121 9 160 45C121 81 63 78 36 45Z" fill="url(#f3)" />
+        <path d="M160 45L196 20V70L160 45Z" fill="url(#f4)" />
+        <circle cx="72" cy="40" r="3" fill="white" fill-opacity=".9"/>
+        <defs>
+          <linearGradient id="f3" x1="36" y1="20" x2="168" y2="72" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#9DFAFF"/>
+            <stop offset="1" stop-color="#27B8FF"/>
+          </linearGradient>
+          <linearGradient id="f4" x1="160" y1="20" x2="196" y2="70" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#49D8FF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="fish three">
+      <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36 45C63 12 121 9 160 45C121 81 63 78 36 45Z" fill="url(#f5)" />
+        <path d="M160 45L196 20V70L160 45Z" fill="url(#f6)" />
+        <defs>
+          <linearGradient id="f5" x1="36" y1="20" x2="168" y2="72" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#6EF4FF"/>
+            <stop offset="1" stop-color="#1B92FF"/>
+          </linearGradient>
+          <linearGradient id="f6" x1="160" y1="20" x2="196" y2="70" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#CFFFFF"/>
+            <stop offset="1" stop-color="#43C5FF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="fish four">
+      <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36 45C63 12 121 9 160 45C121 81 63 78 36 45Z" fill="url(#f7)" />
+        <path d="M160 45L196 20V70L160 45Z" fill="url(#f8)" />
+        <defs>
+          <linearGradient id="f7" x1="36" y1="20" x2="168" y2="72" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#B2FCFF"/>
+            <stop offset="1" stop-color="#2278FF"/>
+          </linearGradient>
+          <linearGradient id="f8" x1="160" y1="20" x2="196" y2="70" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFFFFF"/>
+            <stop offset="1" stop-color="#39CBFF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="bubbles" id="bubbles"></div>
+  </div>
+
+  <div class="site">
+    <header class="topbar">
+      <div class="container nav">
+        <a href="#" class="brand">
+          <span class="brand-mark"></span>
+          <span class="brand-text">
+            <strong>Blitz Network</strong>
+            <span>Blitz SMP / Blitz FFA</span>
+          </span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#servers">Servers</a>
+          <a href="#store">Store</a>
+          <a href="#join">Join</a>
+          <a href="#discord">Discord</a>
+        </nav>
+
+        <a href="#store" class="nav-cta">Open Store</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-shell reveal">
+            <div class="hero-waterline"></div>
+
+            <div class="hero-content">
+              <div class="hero-copy">
+                <div class="eyebrow">Aqua themed Minecraft network</div>
+                <h1>
+                  Dive into
+                  <span class="gradient">Blitz Network</span>
+                </h1>
+                <p class="hero-sub">
+                  A sharp ocean-core landing page for your server brand. Blitz SMP for survival and rivalry. Blitz FFA for nonstop diamond fights. Clean, modern, underwater, and actually on-theme.
+                </p>
+
+                <div class="hero-actions">
+                  <a href="#join" class="btn btn-primary">Start Playing</a>
+                  <a href="#servers" class="btn btn-secondary">Explore Servers</a>
+                </div>
+              </div>
+
+              <div class="hero-side">
+                <div class="panel status-card">
+                  <div class="status-top">
+                    <div class="status-label">Live network status</div>
+                    <div class="status-live">Online</div>
+                  </div>
+
+                  <div class="server-ip">
+                    play.blitznetwork.gg
+                    <small>Fast combat, clean survival progression, custom premium weapons, underwater neon theme.</small>
+                  </div>
+                </div>
+
+                <div class="panel-grid">
+                  <div class="panel metric">
+                    <span>Core Servers</span>
+                    <strong>02</strong>
+                  </div>
+                  <div class="panel metric">
+                    <span>Combat Style</span>
+                    <strong>Diamond</strong>
+                  </div>
+                  <div class="panel metric">
+                    <span>Theme</span>
+                    <strong>Aqua</strong>
+                  </div>
+                  <div class="panel metric">
+                    <span>Brand</span>
+                    <strong>Blitz</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="servers">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <small>Servers</small>
+              <h2>Two worlds. One identity.</h2>
+            </div>
+            <p>
+              Built around one survival experience and one full pressure PvP arena. No filler sections. Just the two modes that matter.
+            </p>
+          </div>
+
+          <div class="rule"></div>
+
+          <div class="modes">
+            <article class="mode-card reveal">
+              <div class="mode-top">
+                <div class="mode-tag">Survival Core</div>
+                <div class="mode-fish">
+                  <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 60C34 34 67 30 91 60C67 90 34 86 18 60Z" fill="url(#m1)" />
+                    <path d="M91 60L112 44V76L91 60Z" fill="url(#m2)" />
+                    <defs>
+                      <linearGradient id="m1" x1="18" y1="40" x2="96" y2="86" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#8AF8FF"/>
+                        <stop offset="1" stop-color="#1E8FFF"/>
+                      </linearGradient>
+                      <linearGradient id="m2" x1="91" y1="44" x2="112" y2="76" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FFFFFF"/>
+                        <stop offset="1" stop-color="#45DAFF"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+
+              <h3>Blitz SMP</h3>
+              <p>
+                Progression-heavy survival with rivalry, item value, risk, movement tech, and premium weapons that actually change fights instead of being boring filler.
+              </p>
+
+              <div class="mode-stats">
+                <div class="mode-stat">
+                  <strong>Dash</strong>
+                  <span>Movement based item meta</span>
+                </div>
+                <div class="mode-stat">
+                  <strong>Lifesteal</strong>
+                  <span>Sustain in real fights</span>
+                </div>
+                <div class="mode-stat">
+                  <strong>Rivalry</strong>
+                  <span>High stakes player conflict</span>
+                </div>
+                <div class="mode-stat">
+                  <strong>Economy</strong>
+                  <span>Premium gear value loop</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="mode-card reveal">
+              <div class="mode-top">
+                <div class="mode-tag">Combat Core</div>
+                <div class="mode-fish">
+                  <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 60C34 34 67 30 91 60C67 90 34 86 18 60Z" fill="url(#m3)" />
+                    <path d="M91 60L112 44V76L91 60Z" fill="url(#m4)" />
+                    <defs>
+                      <linearGradient id="m3" x1="18" y1="40" x2="96" y2="86" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#B5FDFF"/>
+                        <stop offset="1" stop-color="#28BFFF"/>
+                      </linearGradient>
+                      <linearGradient id="m4" x1="91" y1="44" x2="112" y2="76" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FFFFFF"/>
+                        <stop offset="1" stop-color="#2EA3FF"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+
+              <h3>Blitz FFA</h3>
+              <p>
+                Constant diamond kit pressure, quick resets, nonstop action, and an arena built for players who want pure PvP reps without dead time.
+              </p>
+
+              <div class="mode-stats">
+                <div class="mode-stat">
+                  <strong>Instant</strong>
+                  <span>Fast re-entry combat loop</span>
+                </div>
+                <div class="mode-stat">
+                  <strong>Sharp</strong>
+                  <span>Responsive fight feel</span>
+                </div>
+                <div class="mode-stat">
+                  <strong>Diamond</strong>
+                  <span>Pure gear-based pressure</span>
+                </div>
+                <div class="mode-stat">
+                  <strong>Practice</strong>
+                  <span>Built for repetition</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="store">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <small>Store</small>
+              <h2>Premium items with real presence.</h2>
+            </div>
+            <p>
+              Plug these buttons into Tebex, Stripe, or any checkout you want. This is already structured like a real storefront instead of placeholder junk.
+            </p>
+          </div>
+
+          <div class="rule"></div>
+
+          <div class="store-grid">
+            <article class="product reveal">
+              <div class="product-tag">Mobility Weapon</div>
+              <h4>Dash Sword</h4>
+              <p>
+                Burst movement weapon for closes, escapes, repositioning, and aggressive pressure in Blitz SMP and Blitz FFA.
+              </p>
+
+              <div class="price">
+                <strong>€4.99</strong>
+                <span>one-time unlock</span>
+              </div>
+
+              <ul>
+                <li>Instant reposition ability</li>
+                <li>Useful in both servers</li>
+                <li>Perfect for aggressive players</li>
+              </ul>
+
+              <div class="product-actions">
+                <a href="https://your-store-link.com/dash-sword" class="btn buy">Buy Now</a>
+                <a href="#" class="btn ghost">Details</a>
+              </div>
+            </article>
+
+            <article class="product reveal">
+              <div class="product-tag">Sustain Weapon</div>
+              <h4>Lifesteal Sword</h4>
+              <p>
+                Converts pressure into healing and gives extended duel value for players who want to outlast fights instead of just trading hits.
+              </p>
+
+              <div class="price">
+                <strong>€6.99</strong>
+                <span>one-time unlock</span>
+              </div>
+
+              <ul>
+                <li>Health return on hit</li>
+                <li>Premium late-fight value</li>
+                <li>Great for stacked survival fights</li>
+              </ul>
+
+              <div class="product-actions">
+                <a href="https://your-store-link.com/lifesteal-sword" class="btn buy">Buy Now</a>
+                <a href="#" class="btn ghost">Details</a>
+              </div>
+            </article>
+
+            <article class="product reveal">
+              <div class="product-tag">Rank Upgrade</div>
+              <h4>Tide Rank</h4>
+              <p>
+                A clean premium rank for players who want status, cosmetics, and room for future expansion without the store looking cheap.
+              </p>
+
+              <div class="price">
+                <strong>€9.99</strong>
+                <span>starter tier</span>
+              </div>
+
+              <ul>
+                <li>Premium account styling</li>
+                <li>Expandable perk structure</li>
+                <li>Fits larger store ladder later</li>
+              </ul>
+
+              <div class="product-actions">
+                <a href="https://your-store-link.com/tide-rank" class="btn buy">Buy Now</a>
+                <a href="#" class="btn ghost">Details</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="join-strip reveal" id="join">
+            <div>
+              <h3>Underwater, fast, and actually on-brand.</h3>
+              <p>
+                Replace the IP, swap the store URLs, add your Discord invite, and this is ready to go live as a real Blitz Network landing page.
+              </p>
+            </div>
+
+            <div class="join-actions">
+              <a href="minecraft://?addExternalServer=Blitz%20Network|play.blitznetwork.gg" class="btn btn-primary">Join Server</a>
+              <a href="https://discord.gg/yourinvite" id="discord" class="btn btn-secondary">Open Discord</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-box">
+        <div>Blitz Network — Blitz SMP and Blitz FFA.</div>
+        <div class="footer-links">
+          <a href="#servers">Servers</a>
+          <a href="#store">Store</a>
+          <a href="#discord">Discord</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const bubbles = document.getElementById('bubbles');
+    for (let i = 0; i < 28; i++) {
+      const bubble = document.createElement('span');
+      bubble.className = 'bubble';
+      const size = 8 + Math.random() * 28;
+      bubble.style.width = size + 'px';
+      bubble.style.height = size + 'px';
+      bubble.style.left = Math.random() * 100 + 'vw';
+      bubble.style.animationDuration = (8 + Math.random() * 14) + 's';
+      bubble.style.animationDelay = (-Math.random() * 16) + 's';
+      bubble.style.setProperty('--drift', ((Math.random() * 120) - 60) + 'px');
+      bubble.style.opacity = 0.2 + Math.random() * 0.45;
+      bubbles.appendChild(bubble);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const grid = document.querySelector('.deep-grid');
+    let tick = 0;
+    function animateGrid(){
+      tick += 0.16;
+      grid.style.backgroundPosition = `${tick}px ${tick * 1.3}px`;
+      requestAnimationFrame(animateGrid);
+    }
+    animateGrid();
+  </script>
+</body>
+</html>
